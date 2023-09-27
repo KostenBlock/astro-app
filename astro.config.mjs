@@ -10,7 +10,7 @@ export default defineConfig({
         mode: 'middleware' // or 'standalone'
     }),
     // trailingSlash: "always",
-    output: "hybrid",
+    output: "server",
     build: {
         format: 'file'
     },

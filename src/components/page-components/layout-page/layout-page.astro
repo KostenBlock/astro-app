@@ -1,0 +1,82 @@
+---
+
+import { Image } from "astro:assets";
+
+import { LayoutI } from "~/helpers/interfaces/layout.interface";
+interface Props extends LayoutI {}
+
+const {
+    kitchen_area,
+    living_area,
+    floor,
+    door,
+    num,
+    sum_price,
+    layouts_url
+} = Astro.props;
+
+---
+
+<div class="wrapper">
+    <div class="content">
+        <Image
+            src={layouts_url}
+            alt={`Планировка-${num}`}
+            class="picture"
+            height="100%"
+            width="100%"
+        />
+        <div class="properties row">
+            <div class="property column">
+                <p>Подъезд</p>
+                <p>{door}</p>
+            </div>
+            <div class="property column">
+                <p>Номер</p>
+                <p>{num}</p>
+            </div>
+            <div class="property column">
+                <p>Этаж</p>
+                <p>{floor}</p>
+            </div>
+           <div class="property column">
+                <p>Площадь кухни</p>
+                <p>{kitchen_area}</p>
+            </div>
+           <div class="property column">
+                <p>Жилая площадь</p>
+                <p>{living_area}</p>
+            </div>
+            <div class="property column">
+                <p>Цена</p>
+                <p>{sum_price}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style lang="scss">
+    .wrapper {
+      padding: 120px 0;
+
+      .content {
+        align-items: start;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+
+        .properties {
+          gap: 5px;
+
+          .property {
+            align-items: center;
+            justify-content: space-between;
+          };
+        };
+
+        .picture {
+          height: 400px;
+          width: 100%;
+        };
+      };
+    };
+</style>

@@ -1,10 +1,9 @@
 ---
-import Layout from "~/layouts/Layout.astro";
-import {getSingleLayout} from "../../helpers/api/layouts";
 
-// export function getStaticPaths () {
-//     return [];
-// }
+import { getSingleLayout } from "../../helpers/api/layouts";
+
+import Layout from "~/layouts/Layout.astro";
+import LayoutPage from "~/components/page-components/layout-page/layout-page.astro"
 
 const { id } = Astro.params;
 
@@ -13,20 +12,5 @@ if (!data) return Astro.redirect("/404");
 ---
 
 <Layout>
-    <div class="wrapper">
-        <div class="content">
-            <p>Айди:</p>
-            <p>{id}</p>
-        </div>
-    </div>
+    <LayoutPage {...data} />
 </Layout>
-
-<style lang="scss">
-    .wrapper {
-      padding: 150px 0;
-
-      .content {
-
-      };
-    };
-</style>
