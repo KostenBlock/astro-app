@@ -1,0 +1,31 @@
+---
+import Logo from "@/images/logo.svg?raw";
+---
+
+<div class="wrapper">
+    <div class="content column">
+        <Fragment set:html={Logo} />
+        <p class="">Профиль</p>
+    </div>
+</div>
+
+<style>
+    .wrapper {
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: 5;
+        height: 90px;
+        background-color: #fff;
+
+        .content {
+            align-items: center;
+            justify-content: space-between;
+
+            .profile__name {
+                font-size: 16px;
+                line-height: 24px;
+            }
+        };
+    }
+</style>

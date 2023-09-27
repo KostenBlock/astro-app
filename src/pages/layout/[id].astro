@@ -1,0 +1,32 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import {getSingleLayout} from "../../helpers/api/layouts";
+
+// export function getStaticPaths () {
+//     return [];
+// }
+
+const { id } = Astro.params;
+
+const data = await getSingleLayout(id);
+if (!data) return Astro.redirect("/404");
+---
+
+<Layout>
+    <div class="wrapper">
+        <div class="content">
+            <p>Айди:</p>
+            <p>{id}</p>
+        </div>
+    </div>
+</Layout>
+
+<style lang="scss">
+    .wrapper {
+      padding: 150px 0;
+
+      .content {
+
+      };
+    };
+</style>

@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+import Button from "./components/button";
+
+interface Props extends HeadSectionI {
+
+}
+
+import { HeadSectionI } from "~/helpers/interfaces/directus.interface";
+
+const { header, button, lead, yandex_goal } = Astro.props;
+
+---
+
+<div class="wrapper">
+    <div class="content">
+        <Image
+            src="https://minio-test.tap2v.com/dogma-public/Slider%201dogma/%D0%9F%D0%BE%D0%BF%D0%B0%D0%BF%200%2C89%202.png"
+            alt="A bird."
+            width="50"
+            height="50"
+        />
+        <Button
+            text={button}
+            client:load
+        />
+    </div>
+</div>
+
+<style lang="scss">
+  .wrapper {
+    padding: 100px 0;
+
+    .content {
+      @media screen and (max-width: $tablet) {
+        max-width: 200px;
+      };
+    };
+  };
+</style>

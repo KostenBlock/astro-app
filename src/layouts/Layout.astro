@@ -1,0 +1,60 @@
+---
+import "~/styles/global/template.scss";
+import Header from "~/components/layout-components/header.astro";
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<Header />
+		<slot />
+	</body>
+</html>
+<style is:global>
+	button {
+		outline: none;
+		border: none;
+		background-color: transparent;
+	}
+	html {
+		scroll-behavior: smooth
+	}
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		color: #333;
+		font-family: "TTNorms", Arial, Helvetica, sans-serif;
+		vertical-align: baseline;
+		cursor: default;
+	}
+
+	a {
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	input,
+	textarea {
+		appearance: none;
+	}
+
+	img {
+		user-select: none;
+	}
+</style>
