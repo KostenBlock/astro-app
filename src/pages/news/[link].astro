@@ -1,0 +1,24 @@
+---
+import { getDirectusItemsByAxiosOnClient } from "~/helpers/api/news";
+
+import Layout from "~/layouts/Layout.astro";
+
+export async function getStaticPaths() {
+    const news = await getDirectusItemsByAxiosOnClient('news_', `?limit=-1&sort=-dateBegin`);
+    return news.map((element) => {
+        return {
+            params: {link: element.link.replace(":","_")},
+            props: element,
+        };
+    });
+}
+
+const { header } = Astro.props;
+
+---
+
+<Layout>
+    <p style="padding: 150px">
+        {header}
+    </p>
+</Layout>

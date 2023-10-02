@@ -1,0 +1,16 @@
+---
+
+import { getSingleLayout } from "../../src/helpers/api/layouts";
+
+import Layout from "../../src/layouts/Layout.astro";
+import LayoutPage from "../../src/components/page-components/layout-page/layout-page.astro"
+
+const { id } = Astro.params;
+
+const data = await getSingleLayout(id);
+if (!data) return Astro.redirect("/404");
+---
+
+<Layout>
+    <LayoutPage {...data} />
+</Layout>

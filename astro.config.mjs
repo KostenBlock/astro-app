@@ -6,13 +6,13 @@ import nodejs from '@astrojs/node';
 // https://astro.build/config
 export default defineConfig({
     integrations: [react()],
-    adapter: nodejs({
-        mode: 'middleware' // or 'standalone'
-    }),
+    // adapter: nodejs({
+    //     mode: 'standalone' // or 'standalone'
+    // }),
     // trailingSlash: "always",
-    output: "server",
+    output: "static",
     build: {
-        format: 'file'
+        format: 'directory'
     },
     vite: {
         css: {
